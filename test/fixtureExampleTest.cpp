@@ -1,4 +1,4 @@
-
+#include "gtest/gtest.h"
 class C{};
 
 class B
