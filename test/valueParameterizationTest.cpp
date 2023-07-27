@@ -3,7 +3,8 @@
 //code under test
 int div_fun(int numerator, int denominator)
 {
-   if(denominator==0 || denominator < 0) {return 0;}
+   if(denominator==0) {return 0;}
+   if(denominator<0){ return -1;}
    return numerator/denominator;
 }
 
@@ -45,5 +46,5 @@ INSTANTIATE_TEST_SUITE_P(divFun,
                          ::testing::Values(
                          std::make_tuple(10, 5, 2),
                          std::make_tuple(10, 0, 0),
-                         std::make_tuple(10, -5, 0)));
+                         std::make_tuple(10, -5, -1)));
 
