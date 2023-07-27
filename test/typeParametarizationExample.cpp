@@ -27,6 +27,11 @@ class AutoTempRegulator{
     }
 };
 
+// Note: If you are adding more sensor means you have to add more fixtures and test cases. 
+// in this case you can use type parametarized 
+// All classes should use the same method, Interface.
+// Method can be different[strategy]
+
 // ModelATempTempSensorFixture --> High level module
 // objUnderTest ---> Low level module
 // objUnderTest depends on ModelATempSensor
@@ -54,7 +59,4 @@ TEST_F(ModelBTempTempSensorFixture, GetTempTest)
 }
 
 
-// Note: If you are adding more sensor means you have to add more fixtures and test cases. 
-// in this case you can use type parametarized 
-// All classes should use the same method, Interface.
-// Method can be different[strategy]
+
