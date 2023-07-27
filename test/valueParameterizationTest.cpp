@@ -7,21 +7,28 @@ int div_fun(int numerator, int denominator)
    return numerator/denominator;
 }
 
+class DivfunctionalityTestSuite: public::testing::TestWithParam<std::tuple<int,int,int>>
+{
+  //code
+  Protected:
+  DivfunctionalityTestSuite(){}
+  ~DivfunctionalityTestSuite(){}
+};
 //Unit Test code
 // Testsuite =[Testcase, Testcase...]
-TEST(DivfunctionalityTestSuite, testForValidInputs)
+TEST_P(DivfunctionalityTestSuite, testForValidInputs)
 {
 	//Arrange (Given)
-	int numerator = 6;
-	int denominator = 2;
-	int Expected_Output = 3;
+	int numerator =  std::get<0>(GetParam());
+	int denominator = std::get<1>(GetParam());
+	int Expected_Output = std::get<2>(GetParam());
 	//Act
 	int actual_Value = div_fun(numerator,denominator);
 	//Assert (Then)
 	ASSERT_EQ(actual_Value,Expected_Output);
 }
 
-TEST(DivfunctionalityTestSuite, testForNegativeInput)
+/*TEST(DivfunctionalityTestSuite, testForNegativeInput)
 {
 	//Arrange (Given)
 	int numerator = 6;
@@ -31,5 +38,12 @@ TEST(DivfunctionalityTestSuite, testForNegativeInput)
 	int actual_Value = div_fun(numerator,denominator);
 	//Assert (Then)
 	ASSERT_EQ(actual_Value,Expected_Output);
-}
+}*/
+
+INSTANTIATE_TEST_SUITE_P(divFun,
+                         DivfunctionalityTestSuite,
+                         ::testing::Values(
+                         std::make_tuple(10, 5, 2),
+                         std::make_tuple(10, 0, 0),
+                         std::make_tuple(10, -5, 0)));
 
