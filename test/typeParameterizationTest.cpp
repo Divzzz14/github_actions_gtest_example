@@ -66,8 +66,17 @@ TYPED_TEST(TempSensorFixture, GetTempTest)
 
 class FakeTempSensor:public ITempSensor{
    public:
-   int getOutsideTemp() { return 0;}
+    int getOutsideCallCount;
+    int getOutsideTemp() {getOutsideCallCount+=1; return 0;}
 };
+
+
+TEST(AutoTempRegulatorTestSuite,MockTempTest){
+    FakeTempSensor mockObj;
+    AutoTempRegulator codeUnderTest(&mockObj);
+    codeUnderTest.regulateTemp();   
+    ASSERT_EQ(mockObj.getOutsideCallCount,1);
+}
 
 TEST(AutoTempRegulatorTestSuite,RegulateTempTest){
     FakeTempSensor stub;
