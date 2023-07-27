@@ -41,7 +41,7 @@ TestFixtureTestSuite(){
 ~TestFixtureTestSuite(){
    //Releasing the resources
 }
-voide SetUp()
+void SetUp()
 {
    //Arrange
    this->cPtr = new C();
