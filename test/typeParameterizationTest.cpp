@@ -49,8 +49,9 @@ ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
 class TempSensorFixture:public testing::Test{
     protected:
     //Arrange
-     ITempSensor* objUnderTest;
+     
      TempSensorFixture():objUnderTest{createObject<T>()} {} // T can be either ModelATempSensor or ModelBTempSensor
+     ITempSensor* objUnderTest;
      
 };
 
