@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "template.h"
+
 using testing::Types;
 //code under test
 
@@ -47,7 +47,7 @@ template <>
 ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
 
 
-class TempTempSensorFixture:public::testing::Test{
+class TempSensorFixture:public::testing::Test{
     protected:
     //Arrange
      ITempSensor* objUnderTest;
@@ -57,11 +57,11 @@ class TempTempSensorFixture:public::testing::Test{
 
 typedef Types<ModelATempSensor,ModelBTempSensor> Implementations;
 
-TYPED_TEST_SUITE(TempTempSensorFixture, Implementations);
+TYPED_TEST_SUITE(TempSensorFixture, Implementations);
 
-TYPED_TEST(TempTempSensorFixture, GetTempTest)
+TYPED_TEST(TempSensorFixture, GetTempTest)
 {
-   ASSERT_EQ(objUnderTest.getOutsideTemp(),23);
+   ASSERT_EQ(objUnderTest->getOutsideTemp(),23);
 }
 
 
