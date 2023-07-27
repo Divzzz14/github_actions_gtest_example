@@ -20,7 +20,7 @@ class ModelBTempSensor:public ITempSensor{
 class AutoTempRegulator{
     ITempSensor* tempSensorPtr;
     public:
-    AutoTempRegular(ITempSensor* address):tempSensorPtr(address){} //counstructor Injection principle
+    AutoTempRegulator(ITempSensor* address):tempSensorPtr(address){} //counstructor Injection principle
     void regulateTemp()
     {
       this->tempSensorPtr->getOutsideTemp();
