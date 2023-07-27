@@ -10,7 +10,7 @@ int div_fun(int numerator, int denominator)
 class DivfunctionalityTestSuite: public::testing::TestWithParam<std::tuple<int,int,int>>
 {
   //code
-  Protected:
+  protected:
   DivfunctionalityTestSuite(){}
   ~DivfunctionalityTestSuite(){}
 };
