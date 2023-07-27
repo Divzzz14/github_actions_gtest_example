@@ -40,6 +40,6 @@ TEST(TestFixtureObject, operationFalseTest)
    B bObj(&cObj);
    A aObj(&bObj);
    //Act and assert
-   ASSERT_FALSE(aObj.operation());
+   EXPECT_FALSE(aObj.operation());
 }
 
