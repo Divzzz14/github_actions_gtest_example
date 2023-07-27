@@ -45,8 +45,8 @@ void SetUp()
 {
    //Arrange
    this->cPtr = new C();
-   this->bPtr = new B(&cPtr);
-   this->aPtr = new A(&bPtr);
+   this->bPtr = new B(cPtr);
+   this->aPtr = new A(bPtr);
 }
 
 void TearDown()
