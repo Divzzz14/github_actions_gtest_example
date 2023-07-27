@@ -49,9 +49,9 @@ template <typename T>
 class TempSensorFixture:public testing::Test{
     protected:
     //Arrange
-     
-     TempSensorFixture():objUnderTest{createObject<T>()} {} // T can be either ModelATempSensor or ModelBTempSensor
      ITempSensor* objUnderTest;
+     TempSensorFixture():objUnderTest{createObject<T>()} {} // T can be either ModelATempSensor or ModelBTempSensor
+
      
 };
 
