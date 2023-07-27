@@ -38,13 +38,12 @@ class AutoTempRegulator{
 // objUnderTest depends on ModelATempSensor
 // Instead of ModelATempSensor, the objUnderTest(Low level module) should depend on Abstraction (ITempSensor/Interface)
 
-
 template <typename T>
 ITempSensor* createObject();
 template <>
-ITempSensor* creatObject<ModelATempSensor>() { return new ModelATempSensor(); }
+ITempSensor* createObject<ModelATempSensor>() { return new ModelATempSensor(); }
 template <>
-ITempSensor* creatObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
+ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
 
 
 class TempSensorFixture:public testing::Test{
