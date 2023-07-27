@@ -42,9 +42,9 @@ class AutoTempRegulator{
 template <typename T>
 ITempSensor* createObject();
 template <>
-ITempSensor* createObject<ModelATempSensor>() { return new ModelATempSensor(); }
+ITempSensor* creatObject<ModelATempSensor>() { return new ModelATempSensor(); }
 template <>
-ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
+ITempSensor* creatObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
 
 
 class TempSensorFixture:public testing::Test{
