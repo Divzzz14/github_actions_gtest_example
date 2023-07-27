@@ -66,7 +66,7 @@ TYPED_TEST(TempSensorFixture, GetTempTest)
 
 class FakeTempSensor:public ITempSensor{
    public:
-    int getOutsideCallCount;
+    int getOutsideCallCount=0;
     int getOutsideTemp() {getOutsideCallCount+=1; return 0;}
 };
 
