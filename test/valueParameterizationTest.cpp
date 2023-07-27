@@ -33,10 +33,3 @@ TEST(DivfunctionalityTestSuite, testForNegativeInput)
 	ASSERT_EQ(actual_Value,Expected_Output);
 }
 
-
-//Run Test Runner
-int main()
-{
-	::testing::InitGoogleTest();
-	return RUN_ALL_TESTS();
-}
