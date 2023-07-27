@@ -21,7 +21,7 @@ class ModelBTempSensor:public ITempSensor{
 class AutoTempRegulator{
     ITempSensor* tempSensorPtr;
     public:
-    AutoTempRegulator(ITempSensor* address):tempSensorPtr(address){} //counstructor Injection principle
+    AutoTempRegulator(ITempSensor* address):tempSensorPtr{address}{} //counstructor Injection principle
     void regulateTemp()
     {
       this->tempSensorPtr->getOutsideTemp();
@@ -47,11 +47,11 @@ template <>
 ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
 
 
-class TempSensorFixture:public::testing::Test{
+class TempSensorFixture:public testing::Test{
     protected:
     //Arrange
      ITempSensor* objUnderTest;
-     TempSensorFixture():objUnderTest{createObject<T>()}  // T can be either ModelATempSensor or ModelBTempSensor
+     TempSensorFixture():objUnderTest{createObject<T>()} {} // T can be either ModelATempSensor or ModelBTempSensor
      
 };
 
@@ -61,7 +61,7 @@ TYPED_TEST_SUITE(TempSensorFixture, Implementations);
 
 TYPED_TEST(TempSensorFixture, GetTempTest)
 {
-   ASSERT_EQ(objUnderTest->getOutsideTemp(),23);
+   ASSERT_EQ(this->objUnderTest->getOutsideTemp(),23);
 }
 
 
