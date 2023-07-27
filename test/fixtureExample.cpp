@@ -23,3 +23,23 @@ class A
   
 };
 
+TEST(TestFixtureObject, operationTest)
+{
+    //Arrange
+   C cObj;
+   B bObj(&cObj);
+   A aObj(&bObj);
+   //Act and assert
+   ASSERT_TRUE(obj.operation());
+}
+
+TEST(TestFixtureObject, operationFalseTest)
+{
+    //Arrange
+   C cObj;
+   B bObj(&cObj);
+   A aObj(&bObj);
+   //Act and assert
+   ASSERT_FALSE(obj.operation());
+}
+
