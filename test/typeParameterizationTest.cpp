@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "template.h"
 using testing::Types;
 //code under test
 
