@@ -44,7 +44,7 @@ template <>
 ITempSensor* createObject<ModelATempSensor>() { return new ModelATempSensor(); }
 template <>
 ITempSensor* createObject<ModelBTempSensor>() { return new ModelBTempSensor(); }
-
+template <typename T>
 
 class TempSensorFixture:public testing::Test{
     protected:
